@@ -1,14 +1,11 @@
-const express = require( 'express' );
 const { ServeGrip } = require( '@fanoutio/serve-grip' );
 const { WebSocketMessageFormat } = require( '@fanoutio/grip' );
 
-const app = express();
-
 const serveGrip = new ServeGrip({grip: process.env.GRIP_URL});
-app.use(serveGrip);
 
-// Websocket-over-HTTP is translated to HTTP POST
-app.post('/chat', async (req, res) => {
+export default async (req, res) => {
+
+    await serveGrip.run(req, res);
 
     const { wsContext } = req.grip;
     if (wsContext == null) {
