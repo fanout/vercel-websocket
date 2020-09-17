@@ -3,7 +3,7 @@ const { WebSocketMessageFormat } = require( '@fanoutio/grip' );
 
 const serveGrip = new ServeGrip({grip: process.env.GRIP_URL});
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
 
     await serveGrip.run(req, res);
 
