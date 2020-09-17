@@ -36,5 +36,3 @@ module.exports = async (req, res) => {
 
     res.end();
 };
-
-app.listen(3000, () => console.log('Server started'));
