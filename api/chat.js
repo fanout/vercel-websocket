@@ -5,9 +5,7 @@ const serveGrip = new ServeGrip({grip: process.env.GRIP_URL});
 
 module.exports = async (req, res) => {
 
-    if (!(await serveGrip.run(req, res))) {
-        return;
-    }
+    await serveGrip.run(req, res);
 
     const { wsContext } = req.grip;
     if (wsContext == null) {
